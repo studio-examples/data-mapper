@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:context="http://www.springframework.org/schema/context" xmlns:ftp="http://www.mulesoft.org/schema/mule/ee/ftp"
+	xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/ftp http://www.mulesoft.org/schema/mule/ee/ftp/current/mule-ftp-ee.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <sftp:connector name="SFTP" validateConnections="true" doc:name="SFTP"/>
+    <context:property-placeholder location="common.properties"/>
+    <data-mapper:config name="JSON_To_XML" transformationGraphPath="json_to_xml_9.grf" doc:name="JSON_To_XML"/>
+     <flow name="main" doc:name="main">
+	 	<http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" responseTimeout="60000" doc:name="Receive HTTP Requests" encoding="UTF-8"/>
+        <data-mapper:transform config-ref="JSON_To_XML" doc:name="JSON To XML"/>
+        <sftp:outbound-endpoint user="${sftp.user}" password="${sftp.password}" host="${sftp.host}" port="${sftp.port}" path="${sftp.path}"  
+         doc:name="Upload to SFTP" responseTimeout="10000" exchange-pattern="request-response"></sftp:outbound-endpoint>
+     </flow>
+	 
+	 
+</mule>
