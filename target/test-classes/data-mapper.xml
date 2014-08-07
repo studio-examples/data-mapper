@@ -15,13 +15,12 @@ http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sft
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <sftp:connector name="SFTP" validateConnections="true" doc:name="SFTP"/>
-    <context:property-placeholder location="common.properties"/>
     <data-mapper:config name="JSON_To_XML" transformationGraphPath="json_to_xml_9.grf" doc:name="JSON_To_XML"/>
      <flow name="main" doc:name="main">
 	 	<http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" responseTimeout="60000" doc:name="Receive HTTP Requests" encoding="UTF-8"/>
         <data-mapper:transform config-ref="JSON_To_XML" doc:name="JSON To XML"/>
         <sftp:outbound-endpoint user="${sftp.user}" password="${sftp.password}" host="${sftp.host}" port="${sftp.port}" path="${sftp.path}"  
-         doc:name="Upload to SFTP" responseTimeout="10000" exchange-pattern="request-response"></sftp:outbound-endpoint>
+         doc:name="Upload to SFTP" responseTimeout="10000" exchange-pattern="request-response" connector-ref="SFTP"></sftp:outbound-endpoint>
      </flow>
 	 
 	 

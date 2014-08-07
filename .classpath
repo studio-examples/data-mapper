@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry exported="true" kind="con" path="MULE_RUNTIME"/>
-	<classpathentry kind="src" path="src/main/app"/>
+	<classpathentry excluding="**/*.java" kind="src" output="target/test-classes" path="src/main/app"/>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry excluding="**/*.java" kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/resources"/>
-	<classpathentry kind="src" path="src/main/api"/>
+	<classpathentry excluding="**/*.java" kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="con" path="MULE_RUNTIME"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/ftpserver/ftplet-api/1.0.2/ftplet-api-1.0.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/ftpserver/ftpserver-core/1.0.2/ftpserver-core-1.0.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/sshtools/j2ssh-common/0.2.9/j2ssh-common-0.2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/sshtools/j2ssh-core/0.2.9/j2ssh-core-0.2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/sshtools/j2ssh-daemon/0.2.9/j2ssh-daemon-0.2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/sun/xml/bind/jaxb-impl/2.1.5/jaxb-impl-2.1.5.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/sun/xml/bind/jaxb-xjc/2.2.5.1/jaxb-xjc-2.2.5.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.6.1/jcl-over-slf4j-1.6.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/jcraft/jsch/0.1.49/jsch-0.1.49.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/ws/rs/jsr311-api/0.10/jsr311-api-0.10.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/mina/mina-core/2.0.1/mina-core-2.0.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/mockftpserver/MockFtpServer/2.0.2/MockFtpServer-2.0.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/mockito/mockito-all/1.9.0/mockito-all-1.9.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.7.2/slf4j-log4j12-1.7.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/3.0.6.RELEASE/spring-web-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/sshd/sshd-core/0.5.0/sshd-core-0.5.0.jar"/>
 	<classpathentry kind="src" path="mappings"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
